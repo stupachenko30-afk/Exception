@@ -6,8 +6,8 @@ public class MainExceptionTest {
         String s = null, s1 = "hello", s2 = "23a";
         int[] ar = {1,2,3};
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(2);
         list.add(3);
+        list.add(2);
 
 
 
