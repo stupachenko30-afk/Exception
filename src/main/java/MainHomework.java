@@ -4,13 +4,18 @@ public class MainHomework {
         System.out.println(res);
 
     int[] ar = {9, -2, 7, 1};
-    int res1 = findSum(ar, 2, "6");
-    System.out.println(res1);
+        int res1 = 0;
+        try {
+            res1 = findSum(ar, 2, "6");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(res1);
 
 
 
             String[] ar2 = {"2.4", "7.8", "6.1", "-2.3", "9.4"};
-            double result = findParseSum(ar2, 2, 0);
+            double result = findParseSum(ar2, 2, 4);
             System.out.println(result);
         }
 
@@ -18,24 +23,26 @@ public class MainHomework {
 
 
     public static int parseAndSum2(String s1, String s2) {
+        int sum = 0;
         try {
 
             int num1 = Integer.parseInt(s1);
             int num2 = Integer.parseInt(s2);
 
-            int sum = num1 + num2;
+             sum = num1 + num2;
 
             return sum;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println("Error2");
         }
-        return  0 ;
+        return  sum ;
     }
 
 
 
 
-    public static int findSum(int[] ar, int index, String s) {
+    public static int findSum(int[] ar, int index, String s)throws Exception {
         try {
 
         int numberFromArray = ar[index];  //беру число из массива по индексу.
@@ -44,16 +51,17 @@ public class MainHomework {
         int sum = numberFromArray + numberFromString;
             return sum;
         }catch (NumberFormatException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Number Error");
-        return 0;
+            throw new NumberFormatException("Invalid stream");
+           // System.out.println(e.getMessage());
+          //  System.out.println("Number Error");
+       // return 0;
 
         }catch (Exception e)
 
     {
 
-        System.out.println(e.getMessage());
-        System.out.println("Error");
+        System.out.println("Error: " + e.getClass().getSimpleName()); //е хранит информацию об ошибке, класс и имя ошибки
+        System.out.println("Error1: " + e.getMessage());
     }
         return 0;
 
@@ -69,15 +77,15 @@ public class MainHomework {
             double sum = num1 + num2;
             return sum;
 
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println(e.getMessage());
+        }catch (Exception e){
+            System.out.println("Error: " + e.getClass().getSimpleName());
 
             return 0;
 
-        }catch (NumberFormatException e){
-            System.out.println(e.getMessage());
+       // }catch (NumberFormatException e){
+         //   System.out.println(e.getMessage());
         }
-        return 0;
+//        return 0;
     }
     }
 
