@@ -1,6 +1,6 @@
 public class MainHomework {
     public static void main(String[] args) {
-        int res = parseAndSum2("-2", "6");
+        int res = parseAndSum2("-2", "a");
         System.out.println(res);
 
     int[] ar = {9, -2, 7, 1};
@@ -18,24 +18,34 @@ public class MainHomework {
 
 
     public static int parseAndSum2(String s1, String s2) {
-        int num1 = Integer.parseInt(s1);
-        int num2 = Integer.parseInt(s2);
+        try {
 
-        int sum = num1 + num2;
+            int num1 = Integer.parseInt(s1);
+            int num2 = Integer.parseInt(s2);
 
-        return sum;
+            int sum = num1 + num2;
+
+            return sum;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return  0 ;
     }
 
 
 
 
     public static int findSum(int[] ar, int index, String s) {
+        try {
+
         int numberFromArray = ar[index];  //беру число из массива по индексу.
         int numberFromString = Integer.parseInt(s);  //парсю строку в число
 
         int sum = numberFromArray + numberFromString;
-
-        return sum;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 
     public static double findParseSum(String[] ar, int index1, int index2) {
