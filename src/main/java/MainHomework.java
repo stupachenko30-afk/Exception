@@ -42,20 +42,42 @@ public class MainHomework {
         int numberFromString = Integer.parseInt(s);  //парсю строку в число
 
         int sum = numberFromArray + numberFromString;
-        }catch (Exception e){
+            return sum;
+        }catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-        }
+            System.out.println("Number Error");
         return 0;
+
+        }catch (Exception e)
+
+    {
+
+        System.out.println(e.getMessage());
+        System.out.println("Error");
+    }
+        return 0;
+
     }
 
     public static double findParseSum(String[] ar, int index1, int index2) {
-        String s1 = ar[index1];  //беру строку из массива с индексом1
-        String s2 = ar[index2];
-        double num1 = Double.parseDouble(s1);
-        double num2 = Double.parseDouble(s2);
-        double sum = num1 + num2;
+        try {
 
-        return sum;
+            String s1 = ar[index1];  //беру строку из массива с индексом1
+            String s2 = ar[index2];
+            double num1 = Double.parseDouble(s1);
+            double num2 = Double.parseDouble(s2);
+            double sum = num1 + num2;
+            return sum;
+
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+
+            return 0;
+
+        }catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
     }
 
